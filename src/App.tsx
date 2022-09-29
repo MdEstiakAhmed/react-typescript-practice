@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import BasicProps from './topics/props/BasicProps';
+import { ChildrenStringProps, ChildrenComponentProps } from './topics/props/ChildrenProps';
+import { ArgEventProps, InputEventProps, VoidEventProps } from './topics/props/EventProps';
+import { StyleProps } from './topics/props/StyleProps';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const clickHandler = () => {
+		console.log('clicked');
+	}
+	return (
+		<>
+			{/* props */}
+			<BasicProps
+				name="XYZ"
+				age={25}
+				isCompleteGraduation={true}
+				address={{ area: "New Model Town", city: "LA" }}
+				hobby={["Reading", "Writing", "Coding"]}
+				favoriteSuperHero={[{ name: "Iron-man" }, { name: "Thor" }]}
+				religion="Islam"
+			/>
+
+			<ChildrenStringProps>hello. I am children props as a string. </ChildrenStringProps>
+			<ChildrenComponentProps>
+				<ChildrenStringProps>hello. I am children props as a React Component.</ChildrenStringProps>
+			</ChildrenComponentProps>
+
+			<br />
+			<VoidEventProps handleClick={clickHandler} />
+			<br />
+			<ArgEventProps handleClick={(event, id) =>console.log(event, id)} />
+			<br />
+			<InputEventProps value='' handleChange={(event) => console.log(event)} />
+
+			<StyleProps styles={{border: '1px solid', color: 'red'}} />
+		</>
+	);
 }
 
 export default App;
