@@ -1,4 +1,5 @@
 import './App.css';
+import UseState from './topics/hooks/UseState';
 import BasicProps from './topics/props/BasicProps';
 import { ChildrenStringProps, ChildrenComponentProps } from './topics/props/ChildrenProps';
 import { ArgEventProps, InputEventProps, VoidEventProps } from './topics/props/EventProps';
@@ -34,6 +35,9 @@ function App() {
 			<InputEventProps value='' handleChange={(event) => console.log(event)} />
 
 			<StyleProps styles={{border: '1px solid', color: 'red'}} />
+
+			{/* hooks */}
+			<UseState />
 		</>
 	);
 }
