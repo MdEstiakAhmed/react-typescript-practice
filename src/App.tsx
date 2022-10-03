@@ -1,4 +1,8 @@
 import './App.css';
+import { ThemeProvider } from './topics/hooks/UseContext/Context';
+import ThemeBox from './topics/hooks/UseContext/ThemeBox';
+import UserBox from './topics/hooks/UseContext/UserBox';
+import { UserProvider } from './topics/hooks/UseContext/UserContext';
 import UseState from './topics/hooks/UseState';
 import BasicProps from './topics/props/BasicProps';
 import { ChildrenStringProps, ChildrenComponentProps } from './topics/props/ChildrenProps';
@@ -38,6 +42,14 @@ function App() {
 
 			{/* hooks */}
 			<UseState />
+
+			<ThemeProvider>
+				<ThemeBox />
+			</ThemeProvider>
+
+			<UserProvider>
+				<UserBox />
+			</UserProvider>
 		</>
 	);
 }
